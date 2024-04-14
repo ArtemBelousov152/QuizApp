@@ -5,8 +5,6 @@ import { StepsProps } from './Steps.types';
 import classNames from './steps.module.scss';
 
 export const Steps: FC<StepsProps> = ({ activeStep, steps, goToQuestion }) => {
-  console.log(steps);
-
   return (
     <div className={classNames.steps}>
       {steps.map((_, index) => (

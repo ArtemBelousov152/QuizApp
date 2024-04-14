@@ -52,7 +52,7 @@ export const Question: FC<QuestionProps> = ({
             onChange={onChange}
             error={error}
             helperText={helperText}
-            value={answers[currentQuestionIndex] || value}
+            value={answers[currentQuestionIndex] ?? value}
             style={{ width: '50%' }}
             multiline
             maxRows={5}
