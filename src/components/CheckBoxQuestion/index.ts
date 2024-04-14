@@ -1,0 +1,1 @@
+export { CheckBoxQuestion } from './CheckBoxQuestion';

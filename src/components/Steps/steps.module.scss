@@ -1,0 +1,19 @@
+.steps {
+    display: flex;
+    gap: 5px;
+}
+
+.step {
+    height: 12px;
+    background-color: var(--main-gray);
+    width: 100%;
+    cursor: pointer;
+}
+
+.answered {
+    background-color: black;
+}
+
+.active {
+    background-color: var(--main-red);
+}
