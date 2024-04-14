@@ -9,7 +9,13 @@ import {
 } from 'react-hook-form';
 import { addAnswer, setAnswers, setCurrentQuestionIndex } from 'store/slices';
 import { FormType, questionTypes } from 'types';
-import { useAppDispatch, useAppSelector } from 'utils';
+import {
+  CURENT_QUESTION,
+  QUESTION_FIELD,
+  TEST_ANSWERS,
+  useAppDispatch,
+  useAppSelector,
+} from 'utils';
 import { Question } from 'widgets';
 
 import classNames from './testPage.module.scss';
@@ -27,7 +33,7 @@ export const TestPage = () => {
   const { control, handleSubmit, formState, resetField } = formMethods;
   const [isTimeEnd, setIsTimeEnd] = useState(false);
   const [isEndTest, setIsEndTest] = useState(() => {
-    const currentQuestion = sessionStorage.getItem('currentQuestion');
+    const currentQuestion = sessionStorage.getItem(CURENT_QUESTION);
 
     if (currentQuestion) {
       return +currentQuestion >= questions.length;
@@ -45,7 +51,7 @@ export const TestPage = () => {
   };
 
   useEffect(() => {
-    const savedAnswers = sessionStorage.getItem('testAnswers');
+    const savedAnswers = sessionStorage.getItem(TEST_ANSWERS);
     dispatch(
       setAnswers(
         savedAnswers
@@ -54,14 +60,14 @@ export const TestPage = () => {
       )
     );
 
-    const savedQuestion = sessionStorage.getItem('currentQuestion');
+    const savedQuestion = sessionStorage.getItem(CURENT_QUESTION);
 
     handleChangeCurrentQuestIndex(savedQuestion ? parseInt(savedQuestion) : 0);
   }, []);
 
   useEffect(() => {
-    sessionStorage.setItem('testAnswers', JSON.stringify(answers));
-    sessionStorage.setItem('currentQuestion', `${currentQuestionIndex}`);
+    sessionStorage.setItem(TEST_ANSWERS, JSON.stringify(answers));
+    sessionStorage.setItem(CURENT_QUESTION, `${currentQuestionIndex}`);
   }, [answers, currentQuestionIndex]);
 
   useEffect(() => {
@@ -96,7 +102,7 @@ export const TestPage = () => {
         ? notAnsweredQuestion
         : newIndex
     );
-    resetField('question');
+    resetField(QUESTION_FIELD);
   };
   const startNewTest = () => {
     dispatch(setAnswers(Array(questions.length).fill(null)));
@@ -107,7 +113,7 @@ export const TestPage = () => {
 
   const handleChangeQuestion = (questionIndex: number) => {
     handleChangeCurrentQuestIndex(questionIndex);
-    resetField('question');
+    resetField(QUESTION_FIELD);
   };
 
   return (
@@ -141,7 +147,7 @@ export const TestPage = () => {
         ) : (
           <>
             <Controller
-              name="question"
+              name={QUESTION_FIELD}
               control={control}
               rules={{
                 maxLength: {

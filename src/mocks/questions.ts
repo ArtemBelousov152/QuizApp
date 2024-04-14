@@ -58,30 +58,30 @@ export const questions: Question[] = [
     text: 'Как создать класс в языке программирования Python?',
     type: questionTypes.shortAnswer,
   },
-  // {
-  //   id: 11,
-  //   text: 'Какие из перечисленных языков программирования являются функциональными?',
-  //   options: ['JavaScript', 'Haskell', 'Ruby'],
-  //   type: questionTypes.checkBox,
-  // },
-  // {
-  //   id: 12,
-  //   text: 'Как создать новый файл в командной строке (Windows)?',
-  //   type: questionTypes.shortAnswer,
-  // },
-  // {
-  //   id: 13,
-  //   text: 'Что такое HTTP?',
-  //   type: questionTypes.shortAnswer,
-  // },
-  // {
-  //   id: 14,
-  //   text: 'Что такое алгоритм?',
-  //   type: questionTypes.longAnswer,
-  // },
-  // {
-  //   id: 15,
-  //   text: 'Какое расширение файла используется для HTML-документов?',
-  //   type: questionTypes.shortAnswer,
-  // },
+  {
+    id: 11,
+    text: 'Какие из перечисленных языков программирования являются функциональными?',
+    options: ['JavaScript', 'Haskell', 'Ruby'],
+    type: questionTypes.checkBox,
+  },
+  {
+    id: 12,
+    text: 'Как создать новый файл в командной строке (Windows)?',
+    type: questionTypes.shortAnswer,
+  },
+  {
+    id: 13,
+    text: 'Что такое HTTP?',
+    type: questionTypes.shortAnswer,
+  },
+  {
+    id: 14,
+    text: 'Что такое алгоритм?',
+    type: questionTypes.longAnswer,
+  },
+  {
+    id: 15,
+    text: 'Какое расширение файла используется для HTML-документов?',
+    type: questionTypes.shortAnswer,
+  },
 ];
